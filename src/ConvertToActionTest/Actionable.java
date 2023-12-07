@@ -1,5 +1,5 @@
 package ConvertToActionTest;
 
 public interface Actionable {
-    Action convertToAction();
+    Action getAction();
 }

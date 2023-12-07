@@ -4,13 +4,25 @@ import java.util.Queue;
 
 public class ActionExecutor {
 
-    public void executeAction(Action action){
-        action.execute();
+    private Action action;
+
+    public void assignAction(Action action){
+        this.action = action;
     }
 
-    public void executeActions(Queue<Action> actions){
+    public void executeAction(){
+        if(action != null) action.execute();
+    }
+
+    public void assignActorAndTarget(Actor actor, Actor target){
+        action.assignActor(actor);
+        action.assignTarget(target);
+    }
+
+    public void executeActions(Queue<Actionable> actions){
             while (!actions.isEmpty()){
-                actions.peek().execute();
+                action = actions.peek().getAction();
+                executeAction();
                 actions.remove();
             }
     }
