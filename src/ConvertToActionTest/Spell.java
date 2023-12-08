@@ -2,6 +2,7 @@ package ConvertToActionTest;
 
 public class Spell implements Actionable{
 
+    //Test
     private final int num;
     private final Action action = new Action() {
         private Actor actor;
